@@ -57,14 +57,15 @@ export function PasswordGate({ onSuccess }) {
 
         {/* Heading */}
         <h1 
-          className="text-[26px] font-extrabold mb-2 leading-tight select-text"
+          className="text-4xl font-bold mb-2.5 leading-tight select-text uppercase tracking-widest"
           style={{
+            fontFamily: "'EB Garamond', Garamond, Georgia, serif",
             background: 'linear-gradient(135deg, #081c15 0%, #2d6a4f 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}
         >
-          Sistem Operasional Merempah
+          MEREMPAH
         </h1>
 
         {/* Subtitle */}
