@@ -1,0 +1,29 @@
+Bertindaklah sebagai Senior Cloud Architect dan Lead Developer. Saya sedang merancang infrastruktur dan struktur dasar (boilerplate) untuk aplikasi web pengelolaan laporan keuangan harian dan audit stok cafe. 
+
+Teknologi yang dipilih: React (Vite), Tailwind CSS, Google Apps Script (GAS), Google Sheets, dan Vercel.
+
+Saya TIDAK INGIN menulis kode program fiturnya sekarang (seperti kode form atau logika input). Saya ingin mematangkan konsep arsitektur, skema data, dan struktur folder terlebih dahulu agar fondasinya kokoh.
+
+Buatkan "Infrastructure Plan & Boilerplate Structure" dalam format Markdown yang siap saya push ke GitHub Issues. Gunakan format checkbox `- [ ]` untuk setiap tugasnya. Rencana harus mencakup:
+
+1. **Milestone 1: Arsitektur Aliran Data & Keamanan (Data Flow)**
+   - Jelaskan bagaimana React berkomunikasi dengan Google Apps Script (GAS) hingga masuk ke Google Sheets.
+   - Bagaimana strategi mengamankan URL Web App GAS agar tidak ditembak oleh pihak luar secara sembarangan (misal: validasi token sederhana di sisi GAS).
+
+2. **Milestone 2: Cetak Biru Skema Data (Google Sheets Blueprint)**
+   - Struktur arsitektur kolom yang matang untuk `Sheet_Keuangan` (ID, Tanggal, Jenis, Kategori, Nominal, Keterangan, User).
+   - Struktur arsitektur kolom untuk `Sheet_Audit_Stok` (ID, Tanggal, Nama_Barang, Stok_Sistem, Stok_Fisik, Selisih, Satuan, Keterangan, User).
+   - Tentukan tipe data (*Data Type*) untuk masing-masing kolom tersebut agar tidak terjadi error format saat kalkulasi.
+
+3. **Milestone 3: Standarisasi Struktur Folder (Boilerplate Proyek React)**
+   - Buat pohon struktur folder (folder tree) React + Vite + Tailwind yang ideal dan rapi untuk skala UMKM.
+   - Tentukan di folder mana konfigurasi API, komponen reusable (button, input), dan halaman utama diletakkan.
+
+4. **Milestone 4: Strategi Deployment & Manajemen Lingkungan (Environment)**
+   - Rencana pengaturan Environment Variables (`.env`) di Vercel untuk menyimpan URL API GAS.
+   - Alur integrasi CI/CD dari GitHub ke Vercel (kapan aplikasi akan auto-deploy).
+
+Sajikan rencana infrastruktur ini dengan bahasa Indonesia yang detail, sistematis, dan profesional agar siap menjadi panduan utama proyek ini sebelum fase coding dimulai.
+Buat dalam high level perspective, Jangan terlalu low level atau detail,
+nanti, dokumen planningnya akan digunakan oleh programmer atau model yang lebih murah
+untuk di implementasikan
