@@ -1,88 +1,72 @@
 import React from 'react';
 
 /**
- * Main Layout dengan Sidebar Navigasi modern berbasis Tab.
+ * Main Layout bertema Green & Cream Merempah Cafe.
+ * Mengikuti header dan tab navigasi horizontal sesuai Index.html lama.
  */
-export function MainLayout({ children, activeTab, setActiveTab }) {
-  const menuItems = [
-    { id: 'dashboard', name: 'Dashboard', icon: '📊' },
-    { id: 'keuangan', name: 'Laporan Keuangan', icon: '💰' },
-    { id: 'audit_stok', name: 'Audit Stok Cafe', icon: '📦' },
+export function MainLayout({ children, activeTab, setActiveTab, onLogout }) {
+  const tabs = [
+    { id: 'handover', name: '1. Handover' },
+    { id: 'cashflow', name: '2. Cashflow' },
+    { id: 'kasbon', name: '3. Kasbon' },
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col md:flex-row font-sans">
-      {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-slate-950 border-b md:border-b-0 md:border-r border-slate-900 flex flex-col shrink-0">
-        {/* Logo / Cafe Name */}
-        <div className="p-6 border-b border-slate-900 flex items-center gap-3">
-          <span className="text-2xl">☕</span>
-          <div>
-            <h1 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent leading-none">
-              Merempah Cafe
-            </h1>
-            <span className="text-[10px] text-slate-500 font-medium tracking-wider uppercase">
-              Management System
-            </span>
-          </div>
+    <div className="min-h-screen bg-bg-cream flex flex-col text-text-main antialiased selection:bg-accent-gold/30">
+      {/* Header Utama */}
+      <header className="bg-accent-green text-white text-center py-4 border-b-4 border-accent-gold relative shadow-lg z-10 shrink-0">
+        <div className="container mx-auto px-4 max-w-4xl flex justify-between items-center">
+          <div className="w-10"></div> {/* Spacer to center the title */}
+          <h1 className="text-lg md:text-2xl font-black tracking-widest text-white m-0 uppercase select-none">
+            MEREMPAH CAFE &amp; SPICE
+          </h1>
+          {onLogout ? (
+            <button
+              onClick={onLogout}
+              className="text-white/70 hover:text-white hover:bg-white/10 px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase border border-white/20 transition-all duration-200 cursor-pointer"
+              title="Logout Sistem"
+            >
+              Keluar
+            </button>
+          ) : (
+            <div className="w-10"></div>
+          )}
         </div>
+      </header>
 
-        {/* Navigation Menu */}
-        <nav className="flex-1 p-4 space-y-1.5">
-          {menuItems.map((item) => {
-            const isActive = activeTab === item.id;
+      {/* Tab Navigasi Horizontal */}
+      <nav className="bg-[#111] flex select-none shrink-0 shadow-md">
+        <div className="container mx-auto max-w-4xl flex w-full">
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab.id;
             return (
               <button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex-1 py-3.5 text-center font-bold text-[10px] md:text-xs tracking-wider uppercase transition-all duration-300 outline-none cursor-pointer border-none
                   ${isActive 
-                    ? 'bg-purple-600/15 text-purple-400 border border-purple-500/25 shadow-md shadow-purple-600/5' 
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-transparent'
+                    ? 'bg-accent-gold text-[#111] shadow-[inset_0_-2px_0_rgba(0,0,0,0.2)]' 
+                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50'
                   }`}
               >
-                <span className="text-base">{item.icon}</span>
-                {item.name}
+                {tab.name}
               </button>
             );
           })}
-        </nav>
-
-        {/* Staf Info Footer */}
-        <div className="p-4 border-t border-slate-900 bg-slate-950/50">
-          <div className="flex items-center gap-3 px-2 py-1.5">
-            <div className="w-8 h-8 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-sm">
-              S
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-slate-300 leading-none">Staf Cafe</p>
-              <span className="text-[10px] text-slate-500 font-medium">Shift Pagi</span>
-            </div>
-          </div>
         </div>
-      </aside>
+      </nav>
 
-      {/* Main Content Area */}
-      <main className="flex-1 flex flex-col min-w-0">
-        {/* Header */}
-        <header className="h-16 border-b border-slate-900 flex items-center justify-between px-6 bg-slate-950/30 backdrop-blur-md">
-          <h2 className="text-sm font-semibold text-slate-400 capitalize">
-            Menu / {activeTab.replace('_', ' ')}
-          </h2>
-          <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
-            <span>Server Status:</span>
-            <span className="inline-flex items-center gap-1.5 text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Online
-            </span>
-          </div>
-        </header>
-
-        {/* Scrollable Container */}
-        <div className="flex-1 p-6 md:p-8 overflow-y-auto max-w-6xl w-full mx-auto">
+      {/* Kontainer Konten Scrollable */}
+      <main className="flex-1 overflow-y-auto py-8 px-4">
+        <div className="container mx-auto max-w-xl md:max-w-2xl flex flex-col gap-6">
           {children}
         </div>
       </main>
+      
+      {/* Footer Hak Cipta Muted */}
+      <footer className="text-center py-4 text-[10px] text-text-muted select-none shrink-0 border-t border-border-soft bg-white/20">
+        © {new Date().getFullYear()} PT. Seduhlur Indo Group. Seluruh Hak Cipta Dilindungi.
+      </footer>
     </div>
   );
 }

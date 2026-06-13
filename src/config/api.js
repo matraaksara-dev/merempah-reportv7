@@ -5,6 +5,7 @@
 
 const API_URL = import.meta.env.VITE_GAS_API_URL;
 const API_TOKEN = import.meta.env.VITE_API_SECRET_TOKEN;
+const GATE_PASSWORD = import.meta.env.VITE_GATE_PASSWORD || 'KONSISTENSOP';
 
 if (!API_URL) {
   console.warn("Peringatan: VITE_GAS_API_URL tidak terdefinisi di environment variables.");
@@ -17,4 +18,5 @@ if (!API_TOKEN) {
 export const config = {
   apiUrl: API_URL || '',
   apiToken: API_TOKEN || '',
+  gatePassword: GATE_PASSWORD,
 };
