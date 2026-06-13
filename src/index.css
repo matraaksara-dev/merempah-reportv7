@@ -13,6 +13,10 @@
   --color-border-soft: #e3dec3;      /* Batas Cream Lembut */
   --color-feedback-success: #2d6a4f; /* Hijau Sukses */
   --color-feedback-error: #9a031e;   /* Merah Gelap */
+
+  /* Font Kustom Merempah */
+  --font-garamond: "EB Garamond", Georgia, serif;
+  --font-montserrat: "Montserrat", sans-serif;
 }
 
 @layer base {
