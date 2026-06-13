@@ -29,7 +29,10 @@ export function PasswordGate({ onSuccess }) {
   };
 
   return (
-    <div className="min-h-screen bg-bg-cream flex flex-col justify-between items-center py-8 px-4 select-none font-montserrat">
+    <div 
+      className="min-h-screen bg-bg-cream flex flex-col justify-between items-center py-8 px-4 select-none"
+      style={{ fontFamily: "'Montserrat', sans-serif" }}
+    >
       {/* Spacer Atas */}
       <div className="h-2 md:h-6"></div>
 
@@ -38,7 +41,7 @@ export function PasswordGate({ onSuccess }) {
         {/* Dua Daun Merempah (SVG Vektor - Aksesibilitas aria-hidden) */}
         <svg 
           viewBox="0 0 120 120" 
-          className="w-16 h-16 md:w-20 md:h-20 text-accent-green mb-3 transition-transform duration-300 hover:scale-105" 
+          className="w-16 h-16 md:w-20 md:h-20 text-accent-green mb-1 transition-transform duration-300 hover:scale-105" 
           fill="currentColor"
           aria-hidden="true"
         >
@@ -50,19 +53,28 @@ export function PasswordGate({ onSuccess }) {
           <path d="M46,82 C48,78 51,74 54,69" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
         </svg>
 
-        {/* Judul Font Garamond (EB Garamond) - select-text diaktifkan agar ramah SEO */}
-        <h1 className="text-5xl md:text-6xl text-accent-green font-normal tracking-wide mb-2.5 font-garamond select-text">
+        {/* Judul Font Garamond (EB Garamond) - BOLD sesuai permintaan user */}
+        <h1 
+          className="text-5xl md:text-6xl text-accent-green font-bold tracking-wide mt-0 mb-2 select-text"
+          style={{ fontFamily: "'EB Garamond', Garamond, Georgia, serif" }}
+        >
           Merempah
         </h1>
         
         {/* Subtitle Aksioma - Menggunakan Montserrat */}
-        <h2 className="text-xs md:text-sm text-zinc-600 font-semibold tracking-[0.2em] uppercase mb-1.5 font-montserrat leading-none">
+        <h2 
+          className="text-xs md:text-sm text-zinc-600 font-semibold tracking-[0.2em] uppercase mb-1.5 leading-none"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
           Warisan Aksioma Nusantara
         </h2>
         
-        {/* Subtitle Fitur - Menggunakan Montserrat */}
-        <p className="text-[10px] md:text-xs text-zinc-500/80 italic tracking-wide font-montserrat leading-relaxed">
-          Aplikasi Laporan keuangan, Handover, Cashflow, Kasbon, dan stock Opname
+        {/* Subtitle Fitur - Menggunakan Montserrat & Typo Diperbaiki (Stok Opname & Huruf Kapital Sesuai Standar) */}
+        <p 
+          className="text-[10px] md:text-xs text-zinc-500/80 italic tracking-wide leading-relaxed"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
+          Aplikasi Laporan Keuangan, Handover, Cashflow, Kasbon, dan Stok Opname
         </p>
       </header>
 
@@ -72,7 +84,8 @@ export function PasswordGate({ onSuccess }) {
           {/* Label Semantik yang Terhubung dengan Input */}
           <label 
             htmlFor="password-input" 
-            className="text-[10px] md:text-[11px] text-zinc-500 font-bold mb-2.5 tracking-wider uppercase font-montserrat"
+            className="text-[10px] md:text-[11px] text-zinc-500 font-bold mb-2.5 tracking-wider uppercase"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Isi password untuk login
           </label>
@@ -90,9 +103,10 @@ export function PasswordGate({ onSuccess }) {
               autoComplete="current-password"
               aria-invalid={error}
               aria-describedby={error ? "login-error" : undefined}
-              className={`w-full py-2.5 px-6 pr-12 text-center text-sm font-mono text-zinc-700 bg-white border rounded-full outline-none transition-all duration-200 shadow-[0_2px_8px_rgba(0,0,0,0.02)] font-montserrat focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green
+              className={`w-full py-2.5 px-6 pr-12 text-center text-sm font-mono text-zinc-700 bg-white border rounded-full outline-none transition-all duration-200 shadow-[0_2px_8px_rgba(0,0,0,0.02)] focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green
                 ${error ? 'border-rose-500 ring-2 ring-rose-500/10' : 'border-zinc-300'}
               `}
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
             />
             {/* Eye Button untuk Visibility Toggle (type="button" agar tidak memicu form submit) */}
             <button
@@ -119,7 +133,8 @@ export function PasswordGate({ onSuccess }) {
           {/* Tombol Login (Warna Mustard Emas) */}
           <button
             type="submit"
-            className="w-full py-2.5 bg-[#b08f26] hover:bg-[#967721] focus:bg-[#967721] active:scale-[0.98] focus:ring-2 focus:ring-amber-500/20 text-white border-none rounded-xl font-bold tracking-widest text-sm uppercase cursor-pointer transition-all duration-200 mt-3.5 shadow-md shadow-amber-800/10 font-montserrat"
+            className="w-full py-2.5 bg-[#b08f26] hover:bg-[#967721] focus:bg-[#967721] active:scale-[0.98] focus:ring-2 focus:ring-amber-500/20 text-white border-none rounded-xl font-bold tracking-widest text-sm uppercase cursor-pointer transition-all duration-200 mt-3.5 shadow-md shadow-amber-800/10"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Login
           </button>
@@ -130,7 +145,8 @@ export function PasswordGate({ onSuccess }) {
           <div 
             id="login-error" 
             role="alert" 
-            className="mt-3.5 text-rose-600 text-[10px] font-bold tracking-wider animate-pulse font-montserrat"
+            className="mt-3.5 text-rose-600 text-[10px] font-bold tracking-wider animate-pulse"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             ⛔ PASSWORD SALAH. COBA LAGI.
           </div>
@@ -138,11 +154,17 @@ export function PasswordGate({ onSuccess }) {
       </main>
 
       {/* Footer Keterangan Bawah */}
-      <footer className="text-center max-w-[500px] flex flex-col items-center mt-12 font-montserrat">
-        <p className="text-[9px] md:text-[10px] text-zinc-500/80 italic leading-relaxed text-center mb-6 px-4">
+      <footer className="text-center max-w-[500px] flex flex-col items-center mt-12">
+        <p 
+          className="text-[9px] md:text-[10px] text-zinc-500/80 italic leading-relaxed text-center mb-6 px-4"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
           Merempah coffee &amp; spice, adalah entitas brand terpercaya di Kota Malang siap memberikan kesan terbaik dalam Layanan, Fasilitas, dan Produk Berkualitas
         </p>
-        <span className="text-[9px] text-zinc-400 font-bold tracking-widest uppercase select-text">
+        <span 
+          className="text-[9px] text-zinc-400 font-bold tracking-widest uppercase select-text"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
           Copyright. Pandira Technology
         </span>
       </footer>
